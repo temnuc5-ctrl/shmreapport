@@ -6,6 +6,7 @@ import {
   FileText,
   FilePlus2,
   HardDriveDownload,
+  BarChart3,
   LogOut,
 } from "lucide-react";
 import { clearSession } from "@/lib/auth";
@@ -18,6 +19,7 @@ interface SidebarProps {
 const NAV_ITEMS = [
   { to: "/dashboard", label: "لوحة القيادة", icon: LayoutDashboard },
   { to: "/reports", label: "التقارير والحصص", icon: FileText },
+  { to: "/reports/sequence", label: "تقارير Supabase", icon: BarChart3 },
   { to: "/add-report", label: "إضافة تقرير", icon: FilePlus2 },
   { to: "/sync-cache", label: "المخزن المحلي", icon: HardDriveDownload },
 ];

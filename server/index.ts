@@ -5,6 +5,7 @@ import { timingSafeEqual } from "node:crypto";
 import { handleGenerateSession } from "./routes/generate-session";
 import { handleSaveReport } from "./routes/save-report";
 import { handleListReportCatalog, handleListReports } from "./routes/list-reports";
+import { handleGenerateRapport, handleGetRapport } from "./routes/generate-rapport";
 import authRoutes from "./routes/auth";
 import { consume, getClientIp } from "./lib/rateLimit";
 import { requireRapportAuth } from "./lib/auth";
@@ -100,6 +101,8 @@ export function createServer() {
   app.post("/api/save-report", requireApiKey, handleSaveReport);
   app.get("/api/reports", requireApiKey, handleListReports);
   app.get("/api/report-catalog", requireRapportAuth, handleListReportCatalog);
+  app.post("/api/rapport", requireRapportAuth, handleGenerateRapport);
+  app.get("/api/rapport/:jobId", requireRapportAuth, handleGetRapport);
 
   return app;
 }
